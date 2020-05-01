@@ -27,6 +27,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+	document.getElementById("btnCalculate").addEventListener('click', this.onCalculate, false);
     },
     // deviceready Event Handler
     //
@@ -45,5 +46,14 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    }
+    },
+	onCalculate:function(){
+		var b = document.getElementById("leng").value;
+		var h = document.getElementById("bred").value;
+
+		var x = parseInt(b);
+		var y = parseInt(h);
+		var area = x*y;
+		document.getElementById("bred").innerHTML = "Area: " + area;
+	}		
 };
